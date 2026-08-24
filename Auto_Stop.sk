@@ -1,0 +1,30 @@
+# Auto_Stop.sk - Stops server after 5 minutes if no real players are online (ignores CHAP_AI)
+
+every 1 minute:
+  # Count real players (exclude Bot_name)
+  set {_realPlayers} to number of all players
+  loop all players:
+    if loop-player's name is "Bot_name":
+      subtract 1 from {_realPlayers}
+
+  if {_realPlayers} is 0:
+    wait 5 minutes
+
+    # Check again after 5 minutes
+    set {_realPlayers} to number of all players
+    loop all players:
+      if loop-player's name is "Bot_name":
+        subtract 1 from {_realPlayers}
+
+    if {_realPlayers} is 0:
+      broadcast "&cServer is empty. Shutting down in 5 seconds..."
+      wait 5 seconds
+      stop server
+
+# Optional welcome message when the first real player joins
+on join:
+  if number of all players is 1:
+    loop all players:
+      if loop-player's name is "Bot_name":
+        stop
+    broadcast "&aWelcome! Server is now online and Bot_name is ready! ⚡"
