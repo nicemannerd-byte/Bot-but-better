@@ -2,14 +2,14 @@ import mineflayer from 'mineflayer';
 import fetch from 'node-fetch';
 import fs from 'fs';
 
-const SERVER_HOST = 'Server_IP';
-const SERVER_PORT = Server_Port;
-const BOT_USERNAME = 'Bot_name';
+const SERVER_HOST = 'Stridesmp.mcsh.io;
+const SERVER_PORT = 25565;
+const BOT_USERNAME = 'FayaazMJacc;
 const TRIGGER_PREFIX = '!ai ';
-const MODEL = 'llama-3.1-8b-instant';
-const GROQ_API_KEY = 'KEY';
+const MODEL = 'openai/gpt-oss-20b';
+const GROQ_API_KEY = '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';
 
-let currentVersion = '1.21.10';
+let currentVersion = '1.21.11';
 
 // ——— SHARED MEMORY ———
 const MEMORY_FILE = 'chat_memory.json';
